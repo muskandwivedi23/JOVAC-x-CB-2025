@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muskan's GitHub Profile</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .profile-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    .profile-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .profile-box h2 {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .profile-box p {
+      color: #666;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .profile-box a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #5a8bad;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    .profile-box a:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-box" id="githubProfile">
+    <p>Loading GitHub profile...</p>
+  </div>
+
+  <script>
+    // GitHub username
+    const username = "muskandwivedi23";
+
+    // Profile card element
+    const profileBox = document.getElementById("githubProfile");
+
+    // Fetch data from GitHub API
+    fetch('https://api.github.com/users/${username')
+      then(response => response.json())
+      .then(user => {
+        // Show GitHub profile info
+        profileBox.innerHTML = `
+          <img src="${user.avatar_url}" alt="Profile Picture">
+          <h2>${user.name || user.login}</h2>
+          <p>${user.bio || "No bio available."}</p>
+          <p>Followers: ${user.followers}</p>
+          <p>Public Repos: ${user.public_repos}</p>
+          <a href="${user.html_url}" target="_blank">Visit GitHub Profile</a>
+        `;
+      })
+      .catch(error => {
+        profileBox.innerHTML = <p>Unable to load profile. Please try again.</p>;
+        console.error("Error:", error);
+      });
+  </script>
+
+</body>
+</html>

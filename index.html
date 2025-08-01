@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>My Blog</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Login</a>
+      <a href="#">Register</a>
+    </nav>
+  </header>
+
+  <div class="box">
+    <h2>Latest Posts</h2>
+
+    <div class="blog">
+      <h3>First Post</h3>
+      <p>This is a small intro about the first post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <button onclick="showPost('First Post content goes here')">Read More</button>
+    </div>
+
+    <div class="blog">
+      <h3>Second Post</h3>
+      <p>This is a small intro about the second post. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button onclick="showPost('Second Post content goes here')">Read More</button>
+    </div>
+
+    <div class="blog">
+      <h3>Third Post</h3>
+      <p>This is a small intro about the third post. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      <button onclick="showPost('Third Post content goes here')">Read More</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My Blog. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
